@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CrudBasico.Models.Hardware>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "", new {@class="btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HardId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HardNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HardStock)
+        </th>
+        <th>ACCIONES</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HardId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HardNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HardStock)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.HardId} , new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.HardId }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Eliminar", "Delete", new {  id=item.HardId}, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

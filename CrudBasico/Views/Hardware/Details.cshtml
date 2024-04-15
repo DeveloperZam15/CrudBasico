@@ -1,0 +1,42 @@
+﻿@model CrudBasico.Models.Hardware
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hardware</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HardId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HardId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HardNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HardNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HardStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HardStock)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HardId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
