@@ -1,4 +1,6 @@
 ﻿using CrudBasico.Models;
+
+using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,13 +62,17 @@ namespace CrudBasico.Controllers
 
         // POST: Usuario/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string matricula, Usuario usuarios)
         {
             try
             {
+                using (DBModels context = new DBModels())
+                {
+                    context.Entry(usuarios).State = EntityState.Modified;
+                    context.SaveChanges();
+                } 
 
-
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
             }
             catch
             {
