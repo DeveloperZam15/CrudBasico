@@ -181,6 +181,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Media\fondoTUVCH.png" />
+    <Content Include="Media\icon.png" />
+    <Content Include="Media\imagenCostado.jpeg" />
+    <Content Include="Media\logo.png" />
     <Content Include="Models\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DB.Context.cs</LastGenOutput>

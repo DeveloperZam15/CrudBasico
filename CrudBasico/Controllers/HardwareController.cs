@@ -65,7 +65,7 @@ namespace CrudBasico.Controllers
 
         // POST: Hardware/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Hardware hardwares)
+        public ActionResult Edit(Hardware hardwares)
         {
             try
             {
@@ -73,7 +73,6 @@ namespace CrudBasico.Controllers
                 {
                     context.Entry(hardwares).State = EntityState.Modified;
                     context.SaveChanges();
-
                 }
 
                 return RedirectToAction("Index");

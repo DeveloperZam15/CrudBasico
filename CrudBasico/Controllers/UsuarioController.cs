@@ -81,18 +81,26 @@ namespace CrudBasico.Controllers
         }
 
         // GET: Usuario/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string matricula)
         {
-            return View();
+            using (DBModels context = new DBModels())
+            {
+                return View(context.Usuario.Where(x=>x.UsuMatricula==matricula).FirstOrDefault());
+            }
         }
 
         // POST: Usuario/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string matricula, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                using (DBModels context = new DBModels())
+                {
+                    Usuario usuarios = context.Usuario.Where(x => x.UsuMatricula == matricula).FirstOrDefault();
+                    context.Usuario.Remove(usuarios);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }
