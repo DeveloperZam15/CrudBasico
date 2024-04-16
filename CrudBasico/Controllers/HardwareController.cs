@@ -1,4 +1,4 @@
-﻿//Indicamos el uso de los modeloss
+﻿//Indicamos el uso de los modelos
 using CrudBasico.Models;
 
 using System.Data;
@@ -25,7 +25,7 @@ namespace CrudBasico.Controllers
         {
             using (DBModels context = new DBModels())
             {
-                return View(context.Hardware.Where(x => x.HardId == id).FirstOrDefault());
+                return View(context.Hardware.Where(x=>x.HardId == id).FirstOrDefault());
             }
         }
 

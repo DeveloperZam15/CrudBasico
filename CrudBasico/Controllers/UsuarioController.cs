@@ -1,8 +1,10 @@
-﻿using CrudBasico.Models;
+﻿//Indicamos el uso de los modeloss
+using CrudBasico.Models;
 
 using System.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,7 +24,9 @@ namespace CrudBasico.Controllers
         public ActionResult Details(string matricula)
         {
             using (DBModels context = new DBModels())
-                return View(context.Usuario.Where(x=>x.UsuMatricula==matricula).FirstOrDefault());
+            {
+                return View(context.Usuario.Where(y=>y.UsuMatricula==matricula).FirstOrDefault());
+            }        
         }
 
         // GET: Usuario/Create
@@ -55,14 +59,14 @@ namespace CrudBasico.Controllers
         {
             using (DBModels context = new DBModels())
             {
-                return View(context.Usuario.Where(x=>x.UsuMatricula==matricula));
+                return View(context.Usuario.Where(y=>y.UsuMatricula==matricula).FirstOrDefault());
             }
                 
         }
 
         // POST: Usuario/Edit/5
         [HttpPost]
-        public ActionResult Edit(string matricula, Usuario usuarios)
+        public ActionResult Edit(Usuario usuarios)
         {
             try
             {
@@ -72,7 +76,7 @@ namespace CrudBasico.Controllers
                     context.SaveChanges();
                 } 
 
-                    return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             catch
             {
@@ -85,7 +89,7 @@ namespace CrudBasico.Controllers
         {
             using (DBModels context = new DBModels())
             {
-                return View(context.Usuario.Where(x=>x.UsuMatricula==matricula).FirstOrDefault());
+                return View(context.Usuario.Where(y=>y.UsuMatricula==matricula).FirstOrDefault());
             }
         }
 
@@ -97,7 +101,7 @@ namespace CrudBasico.Controllers
             {
                 using (DBModels context = new DBModels())
                 {
-                    Usuario usuarios = context.Usuario.Where(x => x.UsuMatricula == matricula).FirstOrDefault();
+                    Usuario usuarios = context.Usuario.Where(y=>y.UsuMatricula==matricula).FirstOrDefault();
                     context.Usuario.Remove(usuarios);
                     context.SaveChanges();
                 }

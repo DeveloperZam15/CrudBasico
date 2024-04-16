@@ -19,6 +19,7 @@ namespace CrudBasico.Models
         {
             this.RegistroPrestamo = new HashSet<RegistroPrestamo>();
         }
+
         [Display(Name = "Matricula del usuario")]
         public string UsuMatricula { get; set; }
         [Display(Name = "Nombre del usuario")]
