@@ -4,13 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="pt-3 pb-3">Invetario de hardware de préstamo</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", "", new {@class="btn btn-success"})
+    @Html.ActionLink("Insertar nuevo registro", "Create", "", new {@class="btn btn-success"})
 </p>
-<table class="table">
-    <tr>
+
+<table class="table table-bordered text-center">
+
+    <tr class="table-primary">
         <th>
             @Html.DisplayNameFor(model => model.HardId)
         </th>
@@ -28,12 +30,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.HardId)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.HardNombre)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.HardStock)
         </td>
+
         <td>
             @Html.ActionLink("Editar", "Edit", new { id = item.HardId} , new { @class = "btn btn-warning" }) |
             @Html.ActionLink("Detalle", "Details", new { id=item.HardId }, new { @class = "btn btn-primary" }) |

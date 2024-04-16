@@ -20,9 +20,9 @@ namespace CrudBasico.Models
             this.RegistroPrestamo = new HashSet<RegistroPrestamo>();
         }
 
-        [Display(Name="#")]
+        [Display(Name="ID")]
         public int HardId { get; set; }
-        [Display(Name="Nombre del hardware")]
+        [Display(Name="Nombre del Hardware")]
         public string HardNombre { get; set; }
         [Display(Name="Stock de disponibilidad")]
         public int HardStock { get; set; }
